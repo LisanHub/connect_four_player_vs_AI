@@ -1,16 +1,19 @@
 # Connect Four Game with Minimax AI
 
-This is a Python implementation of the classic Connect Four game where a human player competes against an AI using the Minimax algorithm.
+![Connect Four Icon](connect_four_icon.png)
+
+A Python implementation of the classic Connect Four game featuring an intelligent AI opponent powered by the Minimax algorithm with alpha-beta pruning.
 
 ## Features
 
-- 7x6 Connect Four grid
-- Choose between graphical (Pygame) or terminal-based interface
-- Four AI difficulty levels (Easy, Medium, Hard, Expert)
-- Minimax algorithm with alpha-beta pruning
-- Win detection in all directions (horizontal, vertical, diagonal)
-- Draw detection when board is full
-- Restart option after game completion
+- **Interactive Gameplay**: Classic 7x6 Connect Four grid with intuitive controls
+- **Customizable Interface**: Choose between a polished graphical interface (Pygame) or a terminal-based interface
+- **Intelligent AI Opponent**: Four difficulty levels (Easy, Medium, Hard, Expert) to match your skill level
+- **Advanced Algorithm**: Minimax with alpha-beta pruning and strategic evaluation functions
+- **Game Physics**: Animated piece dropping with realistic behavior
+- **Custom Game Icon**: Distinctive app icon for desktop environments
+- **Win/Draw Detection**: Automatic detection of winning combinations and board-full draws
+- **Restart Functionality**: Easily restart the game after completion
 
 ## Requirements
 
@@ -26,6 +29,8 @@ This is a Python implementation of the classic Connect Four game where a human p
 ```bash
 pip install numpy pygame
 ```
+
+3. Ensure the `connect_four_icon.png` file is in the same directory as the game files
 
 ## How to Run
 
@@ -43,14 +48,15 @@ python main.py --cli
 
 ## How to Play
 
-- GUI Mode: 
-  - Use the mouse or arrow keys to select a column
-  - Click or press Enter/Space to drop your piece
-  - Press 'R' to restart after a game ends
+### GUI Mode
+- **Select Column**: Use mouse movement or left/right arrow keys to select a column
+- **Drop Piece**: Click the mouse or press Enter/Space/Down key to drop your piece
+- **Restart Game**: Press 'R' when prompted after a game ends
+- **Exit Game**: Press 'ESC' or close the window
 
-- CLI Mode:
-  - Enter column numbers (1-7) to drop your piece
-  - Follow the on-screen prompts
+### CLI Mode
+- Enter column numbers (1-7) when prompted to drop your piece
+- Follow the on-screen instructions for navigating the game
 
 ## Game Rules
 
@@ -58,6 +64,50 @@ python main.py --cli
 2. The discs fall to the lowest available space in the selected column
 3. The first player to form a horizontal, vertical, or diagonal line of four discs wins
 4. If the grid fills up without a winner, the game is a draw
+
+## AI Difficulty Levels
+
+- **Easy**: Makes occasional random moves and may overlook winning opportunities, searches 1 move ahead
+- **Medium**: Makes some strategic moves but can be beaten with planning, searches 3 moves ahead
+- **Hard**: Makes strong strategic moves and rarely misses winning opportunities, searches 4 moves ahead
+- **Expert**: Plays optimally using full algorithm capabilities, searches 6 moves ahead
+
+## Technical Implementation
+
+### Board Representation
+The game uses a 2D NumPy array to represent the board, with:
+- `0` representing empty cells
+- `1` representing player pieces (red)
+- `2` representing AI pieces (green)
+
+### AI Algorithm Details
+The AI implementation uses several advanced techniques:
+
+#### Minimax Algorithm
+- Recursively evaluates all possible future board states
+- Creates a game tree where each node is a potential board state
+- Assigns scores to terminal states (wins, losses, draws)
+- Propagates scores up the tree, assuming optimal play by both players
+- Time complexity is reduced through alpha-beta pruning
+
+#### Alpha-Beta Pruning
+- Optimization technique that significantly reduces the number of nodes evaluated
+- Maintains two values (alpha and beta) to represent the minimum score the maximizing player is assured and the maximum score the minimizing player is assured
+- Skips evaluating branches that cannot possibly influence the final decision
+- Allows for deeper search depths in the same amount of time
+
+#### Evaluation Function
+The AI evaluates non-terminal board positions through a sophisticated heuristic:
+- Prioritizes center column control (strategically stronger positions)
+- Scores potential winning sequences (connected 2 and 3 pieces with open spaces)
+- Assigns higher penalties to opponent's potential winning moves based on urgency
+- Applies difficulty-based scoring adjustments to simulate different skill levels
+
+### Game Interface
+- Built using Pygame for the graphical version
+- Clean, responsive UI with visual feedback
+- Custom window icon for better desktop integration
+- Animated piece dropping for a more engaging experience
 
 ## File Structure
 
@@ -67,25 +117,18 @@ python main.py --cli
 - `player.py` - Human player representation
 - `gui.py` - Pygame-based graphical user interface
 - `cli.py` - Command-line interface
+- `connect_four_icon.png` - Custom game icon
 - `README.md` - Project documentation
 
-## How It Works
+## Extensibility
 
-### Board Representation
-The game uses a 2D NumPy array to represent the board, with:
-- `0` representing empty cells
-- `1` representing player pieces
-- `2` representing AI pieces
+The modular design makes it easy to:
+- Customize board dimensions
+- Implement new AI algorithms
+- Add multiplayer support
+- Create custom themes or visual styles
 
-### AI Algorithm
-The AI uses the Minimax algorithm with alpha-beta pruning to find the optimal move:
-1. It simulates all possible moves and their outcomes
-2. Each board position is evaluated using a heuristic function
-3. The AI chooses the move that maximizes its chances of winning
-4. The difficulty level determines how many moves ahead the AI will look
+## Credits
 
-### Evaluation Function
-The AI evaluates board positions by:
-- Counting sequences of 2, 3, and 4 pieces
-- Favoring center column positions (strategically stronger)
-- Blocking opponent's potential winning moves
+- AI strategy based on research papers on adversarial search and game theory
+- Game rules following the classic Milton Bradley/Hasbro Connect Four game
