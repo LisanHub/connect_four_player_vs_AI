@@ -1,0 +1,54 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Board -->
+  <rect x="70" y="70" width="372" height="372" rx="15" ry="15" fill="#0066cc" stroke="#004d99" stroke-width="10"/>
+  
+  <!-- Grid of Slots -->
+  <!-- Row 1 -->
+  <circle cx="130" cy="130" r="40" fill="#003366"/>
+  <circle cx="215" cy="130" r="40" fill="#003366"/>
+  <circle cx="300" cy="130" r="40" fill="#003366"/>
+  <circle cx="385" cy="130" r="40" fill="#003366"/>
+  
+  <!-- Row 2 -->
+  <circle cx="130" cy="215" r="40" fill="#003366"/>
+  <circle cx="215" cy="215" r="40" fill="#003366"/>
+  <circle cx="300" cy="215" r="40" fill="#003366"/>
+  <circle cx="385" cy="215" r="40" fill="#003366"/>
+  
+  <!-- Row 3 -->
+  <circle cx="130" cy="300" r="40" fill="#003366"/>
+  <circle cx="215" cy="300" r="40" fill="#003366"/>
+  <circle cx="300" cy="300" r="40" fill="#003366"/>
+  <circle cx="385" cy="300" r="40" fill="#003366"/>
+  
+  <!-- Row 4 -->
+  <circle cx="130" cy="385" r="40" fill="#003366"/>
+  <circle cx="215" cy="385" r="40" fill="#003366"/>
+  <circle cx="300" cy="385" r="40" fill="#003366"/>
+  <circle cx="385" cy="385" r="40" fill="#003366"/>
+  
+  <!-- Game Pieces -->
+  <circle cx="130" cy="385" r="35" fill="#ff0000"/>
+  <circle cx="215" cy="385" r="35" fill="#ff0000"/>
+  <circle cx="300" cy="385" r="35" fill="#25bb2c"/>
+  <circle cx="385" cy="385" r="35" fill="#25bb2c"/>
+  
+  <circle cx="130" cy="300" r="35" fill="#ff0000"/>
+  <circle cx="215" cy="300" r="35" fill="#25bb2c"/>
+  <circle cx="300" cy="300" r="35" fill="#ff0000"/>
+  <circle cx="130" cy="215" r="35" fill="#25bb2c"/>
+  
+  <!-- Highlights on pieces -->
+  <circle cx="130" cy="385" r="15" fill="#ff6666" opacity="0.5"/>
+  <circle cx="215" cy="385" r="15" fill="#ff6666" opacity="0.5"/>
+  <circle cx="300" cy="385" r="15" fill="#7adb7e" opacity="0.5"/>
+  <circle cx="385" cy="385" r="15" fill="#7adb7e" opacity="0.5"/>
+  
+  <circle cx="130" cy="300" r="15" fill="#ff6666" opacity="0.5"/>
+  <circle cx="215" cy="300" r="15" fill="#7adb7e" opacity="0.5"/>
+  <circle cx="300" cy="300" r="15" fill="#ff6666" opacity="0.5"/>
+  <circle cx="130" cy="215" r="15" fill="#7adb7e" opacity="0.5"/>
+  
+  <!-- Border -->
+  <rect x="70" y="70" width="372" height="372" rx="15" ry="15" fill="none" stroke="#004080" stroke-width="10"/>
+</svg>

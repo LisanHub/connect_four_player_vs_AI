@@ -2,6 +2,7 @@ import pygame
 import sys
 import time
 import numpy as np
+import os
 
 class GameUI:
     """
@@ -31,16 +32,42 @@ class GameUI:
         pygame.init()
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption('Connect Four')
+        
+        # Set game icon
+        self.set_game_icon()
 
         self.font = pygame.font.SysFont('monospace', 30)
-        self.big_bold_font = pygame.font.SysFont('monospace', 30, bold= True)
+        self.big_bold_font = pygame.font.SysFont('monospace', 30, bold=True)
         self.small_font = pygame.font.SysFont('monospace', 20)
-        self.bold_font = pygame.font.SysFont('monospace', 20, bold=True)  # Add this line
+        self.bold_font = pygame.font.SysFont('monospace', 20, bold=True)
         
         # Initial UI drawing
         self.draw_board()
         pygame.display.update()
     
+    def set_game_icon(self):
+        """Sets the game window icon."""
+        try:
+            # Look for the icon in the same directory as the script
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            icon_path = os.path.join(script_dir, 'connect_four_icon.png')
+            
+            # If the icon file exists, set it as the game icon
+            if os.path.exists(icon_path):
+                icon = pygame.image.load(icon_path)
+                pygame.display.set_icon(icon)
+            else:
+                # If icon file doesn't exist, create a simple icon
+                icon_surface = pygame.Surface((32, 32))
+                icon_surface.fill(self.BLUE)
+                # Draw a simple connect four piece
+                pygame.draw.circle(icon_surface, self.RED, (16, 16), 12)
+                pygame.draw.circle(icon_surface, self.YELLOW, (16, 16), 6)
+                pygame.display.set_icon(icon_surface)
+        except Exception as e:
+            print(f"Could not set game icon: {e}")
+    
+    # Rest of the code remains unchanged
     def draw_board(self):
         """Draws the current state of the board."""
         self.screen.fill(self.BLACK)
@@ -76,13 +103,8 @@ class GameUI:
                                       self.radius)
         
         # Draw column numbers at the bottom
-        # for col in range(self.board.cols):
-        #     text = self.small_font.render(str(col + 1), True, self.WHITE)
-        #     self.screen.blit(text, (col * self.square_size + self.square_size // 2 - 5, 
-        #                            (self.board.rows + 0.7) * self.square_size))
-        # Draw column numbers at the bottom
         for col in range(self.board.cols):
-            text = self.bold_font.render(str(col + 1), True, self.WHITE)                # bold_font
+            text = self.bold_font.render(str(col + 1), True, self.WHITE)
             self.screen.blit(text, (col * self.square_size + self.square_size // 2 - 5, 
                                     (self.board.rows + 0.7) * self.square_size))
         
