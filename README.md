@@ -15,13 +15,22 @@ A Python implementation of the classic Connect Four game featuring an intelligen
 - **Win/Draw Detection**: Automatic detection of winning combinations and board-full draws
 - **Restart Functionality**: Easily restart the game after completion
 
-## Requirements
+## Running the Game
 
+### Using the Executable (Windows)
+
+1. Navigate to the `dist` folder
+2. Double-click on `main.exe` to launch the game
+3. No installation required - the game runs immediately!
+
+### From Source Code (All Platforms)
+
+#### Requirements
 - Python 3.6+
 - NumPy
 - Pygame (for graphical interface)
 
-## Installation
+#### Installation
 
 1. Clone the repository or download the files
 2. Install the required packages:
@@ -32,16 +41,14 @@ pip install numpy pygame
 
 3. Ensure the `connect_four_icon.png` file is in the same directory as the game files
 
-## How to Run
+#### How to Run
 
-### Graphical User Interface (Default)
-
+**Graphical User Interface (Default)**
 ```bash
 python main.py
 ```
 
-### Command Line Interface
-
+**Command Line Interface**
 ```bash
 python main.py --cli
 ```
@@ -118,7 +125,25 @@ The AI evaluates non-terminal board positions through a sophisticated heuristic:
 - `gui.py` - Pygame-based graphical user interface
 - `cli.py` - Command-line interface
 - `connect_four_icon.png` - Custom game icon
+- `main.exe` - Executable version (in `dist` folder)
 - `README.md` - Project documentation
+
+## Creating the Executable
+
+The executable was created using PyInstaller with the following command:
+
+```bash
+pyinstaller --onefile --windowed --icon=connect_four_icon.ico main.py
+```
+
+## Troubleshooting the Executable
+
+If you encounter issues with the executable:
+
+1. Ensure your antivirus isn't blocking the execution
+2. Try running as administrator
+3. Make sure the `dist` folder contains all necessary game assets
+4. If all else fails, run from source code as described above
 
 ## Extensibility
 
